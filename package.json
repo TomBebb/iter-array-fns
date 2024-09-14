@@ -4,7 +4,9 @@
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "format": "prettier --write src ./*.{js,ts,json}",
     "lint": "eslint",
