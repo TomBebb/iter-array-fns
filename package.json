@@ -1,0 +1,24 @@
+{
+  "name": "iter-array-fns",
+  "version": "0.1.0",
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "format": "prettier --write src ./*.{js,ts,json}",
+    "lint": "eslint",
+    "build": "tsup",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.10.0",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.5.0",
+    "vitest": "^2.1.1"
+  }
+}
