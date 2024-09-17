@@ -1,0 +1,43 @@
+import BaseExtIter from './base'
+
+export default class ExtIter<T> implements BaseExtIter<T> {
+  constructor(public readonly iter: Iterable<T>) {}
+  count(): number {
+    const iter = this.iter
+    let total = 0
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of iter) total++
+
+    return total
+  }
+  map<TRet>(mapFn: (item: T) => TRet): BaseExtIter<TRet> {
+    const iter = this.iter
+    return new ExtIter(
+      (function* (): Iterable<TRet> {
+        for (const item of iter) yield mapFn(item)
+      })()
+    )
+  }
+  filter(filterFn: (item: T) => boolean): BaseExtIter<T> {
+    const iter = this.iter
+    return new ExtIter(
+      (function* (): Iterable<T> {
+        for (const item of iter) if (filterFn(item)) yield item
+      })()
+    )
+  }
+  reduce<TAcc>(reducer: (accumulator: TAcc, curr: T) => TAcc, initial: TAcc) {
+    let curr: TAcc = initial
+    for (const item of this.iter) {
+      curr = reducer(curr, item)
+    }
+    return curr
+  }
+  some(check: (v: T) => boolean): boolean {
+    for (const item of this.iter) {
+      if (check(item)) return true
+    }
+    return false
+  }
+}

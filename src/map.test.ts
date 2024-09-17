@@ -1,8 +1,7 @@
-import { test } from 'vitest'
-import map from './map'
-import { expect } from 'vitest'
+import { expect, test } from 'vitest'
+import ExtIter from './iter'
 
 test('map.empty', () => {
-  const res = [...map([], (v) => v)]
-  expect(res.length).eq(0)
+  const iter = new ExtIter([]).map((v) => v != null)
+  expect(iter.count()).eq(0)
 })

@@ -1,4 +1,2 @@
-export { default as count } from './count'
-export { default as map } from './map'
-export { default as reduce } from './reduce'
-export { default as some } from './some'
+export { default as ExtIter } from './iter'
+export { default as BaseExtIter } from './base'
