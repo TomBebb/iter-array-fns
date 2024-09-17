@@ -1,9 +1,16 @@
 {
-  "name": "iter-array-fns",
+  "name": "ts-iter-linq",
   "version": "0.1.0",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": {
+    "name": "Tom D Bebbington",
+    "email": "tophattedcoder@gmail.com",
+    "url": "https://github.com/TomBebb"
+  },
+  "repository": "https://github.com/TomBebb/ts-iter-linq",
+  "description": "Provides the array methods for iterables using a wrapper class",
   "files": [
     "dist"
   ],
