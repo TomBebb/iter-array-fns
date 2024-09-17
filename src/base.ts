@@ -5,4 +5,5 @@ export default interface BaseExtIter<T> {
 
   some(check: (v: T) => boolean): boolean
   count(): number
+  includes(val: T): boolean
 }

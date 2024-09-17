@@ -2,6 +2,11 @@ import BaseExtIter from './base'
 
 export default class ExtIter<T> implements BaseExtIter<T> {
   constructor(public readonly iter: Iterable<T>) {}
+  includes(val: T): boolean {
+    for (const item of iter) if (val === item) return true
+
+    return false
+  }
   count(): number {
     const iter = this.iter
     let total = 0
