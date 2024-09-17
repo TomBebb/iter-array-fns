@@ -9,11 +9,16 @@
     "email": "tophattedcoder@gmail.com",
     "url": "https://github.com/TomBebb"
   },
-  "repository": "https://github.com/TomBebb/ts-iter-linq",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomBebb/ts-iter-linq"
+  },
+  "homepage": "https://github.com/TomBebb/ts-iter-linq",
   "description": "Provides the array methods for iterables using a wrapper class",
   "files": [
     "dist"
   ],
+  "keywords": ["iter", "iterator", "iterable", "util"],
   "scripts": {
     "format": "prettier --write src ./*.{js,ts,json}",
     "lint": "eslint",
