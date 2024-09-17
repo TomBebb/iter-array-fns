@@ -2,7 +2,17 @@ import BaseExtIter from './base'
 
 export default class ExtIter<T> implements BaseExtIter<T> {
   constructor(public readonly iter: Iterable<T>) {}
+  concat(other: BaseExtIter<T>): BaseExtIter<T> {
+    const iter = this.iter
+    return new ExtIter(
+      (function* (): Iterable<T> {
+        for (const item of iter) yield item
+        for (const item of (other as ExtIter<T>).iter) yield item
+      })()
+    )
+  }
   includes(val: T): boolean {
+    const iter = this.iter
     for (const item of iter) if (val === item) return true
 
     return false
