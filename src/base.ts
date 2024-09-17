@@ -9,4 +9,5 @@ export default interface BaseExtIter<T> {
 
   concat(other: BaseExtIter<T>): BaseExtIter<T>
   join(separator?: string): string
+  flat(): BaseExtIter<T>
 }
