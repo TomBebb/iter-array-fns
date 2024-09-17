@@ -8,4 +8,5 @@ export default interface BaseExtIter<T> {
   includes(val: T): boolean
 
   concat(other: BaseExtIter<T>): BaseExtIter<T>
+  join(separator?: string): string
 }

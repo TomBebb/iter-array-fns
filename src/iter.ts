@@ -2,6 +2,15 @@ import BaseExtIter from './base'
 
 export default class ExtIter<T> implements BaseExtIter<T> {
   constructor(public readonly iter: Iterable<T>) {}
+  join(separator: string = ''): string {
+    let full = ''
+    const iter = this.iter
+    for (const item of iter) {
+      if (full.length !== 0) full += separator
+      full += item
+    }
+    return full
+  }
   concat(other: BaseExtIter<T>): BaseExtIter<T> {
     const iter = this.iter
     return new ExtIter(
