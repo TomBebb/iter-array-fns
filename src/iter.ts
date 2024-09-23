@@ -8,7 +8,7 @@ export default class ExtIter<T> implements BaseExtIter<T> {
       (function* (): Iterable<T> {
         for (const item of iter) {
           if (typeof item === 'object' && item![Symbol.iterator]) {
-            for (const sub of item as Iterable<T>) yield sub as T
+            for (const sub of item as unknown as Iterable<T>) yield sub as T
           } else yield item
         }
       })()
