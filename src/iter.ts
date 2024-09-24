@@ -2,18 +2,6 @@ import BaseExtIter from './base'
 
 export default class ExtIter<T> implements BaseExtIter<T> {
   constructor(public readonly iter: Iterable<T>) {}
-  flat(): BaseExtIter<T> {
-    const iter = this.iter
-    return new ExtIter(
-      (function* (): Iterable<T> {
-        for (const item of iter) {
-          if (typeof item === 'object' && item![Symbol.iterator]) {
-            for (const sub of item as unknown as Iterable<T>) yield sub as T
-          } else yield item
-        }
-      })()
-    )
-  }
   join(separator: string = ''): string {
     let full = ''
     const iter = this.iter
